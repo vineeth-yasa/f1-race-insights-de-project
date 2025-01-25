@@ -27,6 +27,8 @@ This project demonstrates a data pipeline designed to process and analyze Formul
 # Architecture 🏗️
 The following components form the architecture of the project:
 
+![image of software componeents and flow](./software_flow.png)
+
 ### 1. Airflow:
 
 - Manages the workflow of data ingestion and tracking.
