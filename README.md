@@ -32,7 +32,7 @@ The following components form the architecture of the project:
 ### 1. Programming Language
 - Python
 ### 2. Containzerization and Orchestration:
-- **Docker** is used to container ize the airflow instance with postgres backend.
+- **Docker** is used to containerize the airflow instance with postgres backend.
 - **Airflow** Manages the workflow of data ingestion and tracking.
 - **PostgreSQL** serves as the Airflow metadata database and local DB.
 ### 3. AWS Services:
