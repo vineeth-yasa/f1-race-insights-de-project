@@ -1,5 +1,5 @@
 # Formula 1 Season Analysis Data Pipeline Project 🚦🏎️
-This project demonstrates a data pipeline designed to process and analyze Formula 1 race results data using a combination of modern data engineering tools and cloud services. The pipeline ingests raw data from the ergast API, processes and stores it in AWS S3, and enables querying and visualization with Athena and QuickSight.
+This project demonstrates a data pipeline designed to process and analyze Formula 1 race results data using a combination of modern data engineering tools and cloud services. The pipeline orchestracted using Apache Airflow ingests raw data from the ergast API , processes and stores it in AWS S3, and enables querying and visualization with Athena and QuickSight.
 
 # Features 🚀
 ### 1. Data Ingestion:
