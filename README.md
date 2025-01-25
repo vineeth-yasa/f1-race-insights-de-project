@@ -25,9 +25,10 @@ This project demonstrates a data pipeline designed to process and analyze Formul
 - The processed_races table enables us to prevent redundant processing of the data.
 
 # Architecture 🏗️
-The following components form the architecture of the project:
 
-![image of software componeents and flow](./software_flow.png)
+![image of software componeents and flow](./software_flow_v1.png)
+
+The following components form the architecture of the project:
 
 ### 1. Airflow:
 
