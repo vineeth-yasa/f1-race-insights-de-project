@@ -53,3 +53,12 @@ The Ergast Developer API is an experimental web service which provides a histori
 - **Glue Crawler**: Creates a data catalog for Athena queries.
 - **Athena**: Enables SQL-like queries on the processed results data.
 - **QuickSight**: Visualizes the processed race results data for insights
+
+# Project Files
+- /dags
+- /etls
+- /utils
+- /config
+- airflow.env
+- docker-compose.yml
+- requirements.txt
