@@ -15,6 +15,10 @@ def full_season_load_pipeline(**kwargs):
 
     conn_postgres=pg.connect(dbname=DATABASE_NAME,user=DATABASE_USER,password=DATABASE_PASSWORD, host=DATABASE_HOST, port=DATABASE_PORT)
     cursor=conn_postgres.cursor()
+
+    cursor.execute(""" CREATE TABLE IF NOT EXISTS processed_races 
+    (race_id SERIAL PRIMARY KEY, race_date DATE NOT NULL UNIQUE, season INTEGER, round INTEGER, last_processed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
+    """)
     s3_hook= S3Hook(aws_conn_id='aws_default')
 
     if not s3_hook.check_for_bucket('f1-season-analysis'):
@@ -45,9 +49,6 @@ def full_season_load_pipeline(**kwargs):
                 except Exception as e:
                     return e
 
-                cursor.execute(""" CREATE TABLE IF NOT EXISTS processed_races 
-                   (race_id SERIAL PRIMARY KEY, race_date DATE NOT NULL UNIQUE, season INTEGER, round INTEGER, last_processed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
-                   """)
     
                 cursor.execute("""  INSERT INTO processed_races (race_date, season, round) 
                     VALUES (%s, %s, %s) 
