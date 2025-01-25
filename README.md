@@ -15,13 +15,13 @@ This project demonstrates a data pipeline designed to process and analyze Formul
 ### 3. Data Cataloging:
 - AWS Glue Crawler is used to catalog the processed data.
 
-### 4.Data Querying & Visualization:
+### 4. Data Querying & Visualization:
 - Processed data is queried using AWS Athena.
 - Visualized to gain season stats and insights using Amazon QuickSight.
 
 ### 5. Tracking Processed Data:
 - Airflow uses PostgreSQL as its backend.
-- A processed_races table tracks the last processed races and their dates to help understand is new race data's available to ingest from the api.
+- A processed_races table tracks the last processed races and their dates to help understand availability of new race data to ingest from the api.
 - The processed_races table enables us to prevent redundant processing of the data.
 
 # Architecture 🏗️
@@ -29,12 +29,13 @@ This project demonstrates a data pipeline designed to process and analyze Formul
 ![image of software componeents and flow](./software_flow_v1.png)
 
 The following components form the architecture of the project:
-
-### 1. Airflow:
-
-- Manages the workflow of data ingestion and tracking.
-- PostgreSQL serves as the Airflow metadata database.
-### 2. AWS Services:
+### 1. Programming Language
+- Python
+### 2. Containzerization and Orchestration:
+- **Docker** is used to container ize the airflow instance with postgres backend.
+- **Airflow** Manages the workflow of data ingestion and tracking.
+- **PostgreSQL** serves as the Airflow metadata database and local DB.
+### 3. AWS Services:
 
 - **S3**: Storage for raw and processed race data.
 - **Lambda**: Processes raw data and moves it to the processed S3 bucket.
