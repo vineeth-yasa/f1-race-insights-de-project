@@ -3,24 +3,24 @@
 This project demonstrates a data pipeline designed to process and analyze Formula 1 race results data using a combination of modern data engineering tools and cloud services. The pipeline orchestracted using Apache Airflow ingests raw data from the ergast API , processes using AWS lambda and stores it in AWS S3, and catalogging data using AWS glue enables querying and visualization with Athena and QuickSight.
 
 
-### 1. Data Ingestion:
+### Data Ingestion:
 
 - Fetches Formula 1 race data from the Ergast API using an Airflow DAG.
 - Raw data is dumped into an S3 bucket for storage.
 - There are 2 dags created, one setup to ingest the latest available results from the api.
 - The other dag to ingest historical race results data either for a specified race or a complete season.
 - The pipeline is made to be idempotent ensuring that reprocessing a certain result doesn't create duplicates in our storage location ensuring safety during backfills. 
-### 2. Data Processing:
+### Data Processing:
 
 - A Lambda function is triggered on an S3 put event to clean and process the raw data and store the processed results in another processed S3 bucket in parquet.
-### 3. Data Cataloging:
+### Data Cataloging:
 - AWS Glue Crawler is used to catalog the processed data.
 
-### 4. Data Querying & Visualization:
+### Data Querying & Visualization:
 - Processed data is queried using AWS Athena.
 - Visualized to gain season stats and insights using Amazon QuickSight.
 
-### 5. Tracking Processed Data:
+### Tracking Processed Data:
 - Airflow uses PostgreSQL as its backend.
 - A processed_races table tracks the last processed races and their dates to help understand availability of new race data to ingest from the api.
 - The processed_races table enables us to prevent redundant processing of the data.
