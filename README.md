@@ -9,7 +9,7 @@ This project demonstrates a data pipeline designed to process and analyze Formul
 - Raw data is dumped into an S3 bucket for storage.
 - There are 2 dags created, one setup to ingest the latest available results from the api.
 - The other dag to ingest historical race results data either for a specified race or a complete season.
-- The pipline is made to be idempotent ensuring that reprocessing a certain result doesn't create duplicates in our storage location ensuring safety during backfills. 
+- The pipeline is made to be idempotent ensuring that reprocessing a certain result doesn't create duplicates in our storage location ensuring safety during backfills. 
 ### 2. Data Processing:
 
 - A Lambda function is triggered on an S3 put event to clean and process the raw data and store the processed results in another processed S3 bucket in parquet.
@@ -46,9 +46,16 @@ The Ergast Developer API is an experimental web service which provides a histori
 ### 2. Containzerization and Orchestration:
 - **Docker** is used to containerize the airflow instance with postgres backend.
 - **Airflow** Manages the workflow of race results ingestion and tracking.
-- **PostgreSQL** serves as the Airflow metadata database and local DB totrack races processed.
-![image of dag for latest data ingestion](./f1_backfil_dag.png)
-![image of dag for historical results ingestion](./f1_etl_latest_dag.png)
+- **PostgreSQL** serves as the Airflow metadata database and local DB totrack races processed
+
+
+
+
+  
+![image of dag for latest data ingestion](./f1_backfil_dag.PNG)
+
+
+![image of dag for historical results ingestion](./f1_etl_latest_dag.PNG)
 ### 3. AWS Services:
 
 - **S3**: Storage for raw API json data and processed parquet race data.
@@ -56,7 +63,11 @@ The Ergast Developer API is an experimental web service which provides a histori
 - **Glue Crawler**: Creates a data catalog for Athena queries.
 - **Athena**: Enables SQL-like queries on the processed results data.
 - **QuickSight**: Visualizes the processed race results data for insights
-![image of dag for historical results ingestion](./sample_season_stats_quicksight.png)
+
+  
+
+  
+![image of dag for historical results ingestion](./sample_season_stats_quicksight.PNG)
 # Project Files
 - dags/ : contains two dags
      - f1_process_latest_dag.py : ingests the latest race results if available
@@ -66,7 +77,7 @@ The Ergast Developer API is an experimental web service which provides a histori
 - utils/ : contains constants.py used to define contans from the config file.
 - airflow.env : define airflow envionment vaiable to define the the executor, metadatabd and other config parameters for airflow
 - docker-compose.yml : Airflow setup with PostgreSQL backend, Celery Executor and redis broker
-- Dockerfile: to setup custom dependencies.
+- Dockerfile: to setup custom requirements.
 - requirements.txt : contains requirements list of dependencies for the project.
   
 # Future Enhancements 🛠️
