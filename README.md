@@ -79,6 +79,7 @@ The Ergast Developer API is an experimental web service which provides a histori
 - docker-compose.yml : Airflow setup with PostgreSQL backend, Celery Executor and redis broker
 - Dockerfile: to setup custom requirements.
 - requirements.txt : contains requirements list of dependencies for the project.
+- aws_lambdas/: contains the lambda functions to process raw json results data which is triggered on an S3 put event
   
 # Future Enhancements 🛠️
 - Implement a proper dimensional model for data warehousing instead of the current one big table approach.
