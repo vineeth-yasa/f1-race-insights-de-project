@@ -55,10 +55,19 @@ The Ergast Developer API is an experimental web service which provides a histori
 - **QuickSight**: Visualizes the processed race results data for insights
 
 # Project Files
-- /dags
-- /etls
-- /utils
-- /config
-- airflow.env
-- docker-compose.yml
-- requirements.txt
+- dags/ : contains two dags
+     - f1_process_latest_dag.py : ingests the latest race results if available
+     - f1_etl_dag.py: ingest and process historical race results data either for a season or specified race.
+- etls/ : contains files with python functions used by the dags to perform extract and load operations from the API to the S3 bucket.
+- config/ : contains a .conf files used to store the database related configurations
+- utils/ : contains constants.py used to define contans from the config file.
+- airflow.env : define airflow envionment vaiable to define the the executor, metadatabd and other config parameters for airflow
+- docker-compose.yml : Airflow setup with PostgreSQL backend, Celery Executor and redis broker
+- Dockerfile: to setup custom dependencies.
+- requirements.txt : contains requirements list of dependencies for the project.
+  
+# Future Enhancements 🛠️
+- Implement a proper dimensional model for data warehousing instead of the current one big table approach.
+- Add support for streaming real-time race data.
+- Implement alerting mechanisms for pipeline failures.
+- Automate QuickSight dashboard creation.
