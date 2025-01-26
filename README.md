@@ -69,5 +69,4 @@ The Ergast Developer API is an experimental web service which provides a histori
 # Future Enhancements 🛠️
 - Implement a proper dimensional model for data warehousing instead of the current one big table approach.
 - Add support for streaming real-time race data.
-- Implement alerting mechanisms for pipeline failures.
-- Automate QuickSight dashboard creation.
+
