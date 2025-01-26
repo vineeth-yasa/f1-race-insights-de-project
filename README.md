@@ -47,6 +47,8 @@ The Ergast Developer API is an experimental web service which provides a histori
 - **Docker** is used to containerize the airflow instance with postgres backend.
 - **Airflow** Manages the workflow of race results ingestion and tracking.
 - **PostgreSQL** serves as the Airflow metadata database and local DB totrack races processed.
+![image of dag for latest data ingestion](./f1_backfil_dag.png)
+![image of dag for historical results ingestion](./f1_etl_latest_dag.png)
 ### 3. AWS Services:
 
 - **S3**: Storage for raw API json data and processed parquet race data.
@@ -54,7 +56,7 @@ The Ergast Developer API is an experimental web service which provides a histori
 - **Glue Crawler**: Creates a data catalog for Athena queries.
 - **Athena**: Enables SQL-like queries on the processed results data.
 - **QuickSight**: Visualizes the processed race results data for insights
-
+![image of dag for historical results ingestion](./sample_season_stats_quicksight.png)
 # Project Files
 - dags/ : contains two dags
      - f1_process_latest_dag.py : ingests the latest race results if available
